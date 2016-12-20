@@ -1,0 +1,28 @@
+# The name of the cloud image will be created from the name and the version.
+name: nginx
+version: 1.0.0
+maintainers: [Joe User - juser@example.com]
+
+# The description will be used for generated websites
+description: An ubuntu image that contains nginx
+# A list of installed tools worth mentioning. 
+# Will be used as documentation, e.g. on a homepage
+tools: [nginx]
+
+# A list of tags to classify images. 
+tags: [webserver]
+
+# Information needed for the execution of diskimage-builder
+dib:
+    # architecture of the image
+    architecture: amd64
+    # list of elements to include in the image
+    elements: [ubuntu, vm]
+    # package names that should be installed, -p in dib
+    packages: [nginx]
+
+# Information needed for image deployment
+deploy:
+    min_cpu: 1
+    min_ram: 512M
+    min_hd: 2G
