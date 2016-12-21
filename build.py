@@ -4,11 +4,13 @@ import os
 import yaml
 from subprocess import call
 
+print("Starting build...\n")
+
 # parse arguments
 parser = argparse.ArgumentParser(description='Build image from configuration yaml file')
 parser.add_argument('-c', '--config', default='config.yaml')
 args = parser.parse_args()
-
+print("reading file...\n")
 # read yaml
 stream = file(args.config, 'r')
 config = yaml.load(stream)
@@ -24,9 +26,9 @@ for field in mandatory_fields:
             raise Exception("Mandatory field '"+field+"' not specified in config file")
 
 #import elements
-call(["git", "submodule","init"])
-call(["git", "submodule","update"])
-
+#call(["git", "submodule","init"])
+#call(["git", "submodule","update"])
+print("building command...\n")
 # build commandline
 image_name = config['name'] + '-' + config['version'] + '.qcow2'
 architecture = config['dib']['architecture']
@@ -49,7 +51,7 @@ if elements:
         cli += ' ' + e
 
 
-
+print("setting environment variable...\n")
 # Execute diskimage builder
 if 'ELEMENTS_PATH' in os.environ:
     os.environ['ELEMENTS_PATH'] = os.getcwd() + '/elements:' + os.environ['ELEMENTS_PATH']

@@ -1,5 +1,8 @@
 image: bohai/diskimage-builder-dockerfile
 
+before_script:
+    - git submodule update --init --recursive
+
 stages:
     - build
 
