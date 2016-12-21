@@ -1,8 +1,8 @@
 image: debian:latest
 before_script:
-    - sudo apt-get update
-    - sudo apt-get upgrade -y
-    - sudo apt-get install git python-pip qemu-utils -y
+    - apt-get update
+    - apt-get upgrade -y
+    - apt-get install git python-pip qemu-utils -y
     - git submodule sync --recursive
     - git submodule update --init --recursive
     - pip install diskimage-builder 
