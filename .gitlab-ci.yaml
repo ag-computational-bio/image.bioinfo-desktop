@@ -1,8 +1,0 @@
-image: bohai/diskimage-builder-dockerfile
-
-stages:
-    - build
-
-build:
-    script:
-        - ./build.py 
