@@ -3,7 +3,7 @@ before_script:
     - git submodule update --init --recursive
     - sudo apt-get update
     - sudo apt-get upgrade -y
-    - sudo apt-get install python-pip -y
+    - sudo apt-get install python-pip qemu-utils -y
     - pip install diskimage-builder 
     - pip install pyyaml
 
