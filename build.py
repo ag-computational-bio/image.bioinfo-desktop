@@ -38,9 +38,15 @@ if packages:
     cli += ' -p '
     cli += ','.join(packages)
 
+#import elements
+subprocess.call(["git", "submodule","init"])
+subprocess.call(["git", "submodule","update"])
+
 if elements:
     for e in elements:
         cli += ' ' + e
+
+
 
 # Execute diskimage builder
 if 'ELEMENTS_PATH' in os.environ:
