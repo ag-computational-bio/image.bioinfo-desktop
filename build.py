@@ -18,10 +18,10 @@ mandatory_fields = ['name', 'version', ['dib','architecture'], ['dib', 'elements
 for field in mandatory_fields:
     if isinstance(field, list):
         if not config[field[0]][field[1]]:
-            raise Exception("No '"+field[0] +"."+field[1]+"' for the image defined")
+            raise Exception("Mandatory field '"+field[0] +"."+field[1]+"' not specified in config file")
     else:
         if not config[field]:
-            raise Exception("No '"+field+"' for the image defined")
+            raise Exception("Mandatory field '"+field+"' not specified in config file")
 
 # build commandline
 image_name = config['name'] + '-' + config['version'] + '.qcow2'
