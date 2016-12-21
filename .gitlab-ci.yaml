@@ -1,0 +1,8 @@
+image: TODO
+
+stages:
+    - build
+
+build:
+    script:
+        - ./build.py 
