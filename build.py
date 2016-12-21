@@ -59,5 +59,5 @@ if 'ELEMENTS_PATH' in os.environ:
 else:
     os.environ['ELEMENTS_PATH'] = os.getcwd() + '/elements'
 
-sys.stderr.write("Executing: " + cli)
-os.system(cli)
+sys.stderr.write("Executing: " + cli + "\n")
+sys.exit(os.system(cli))
