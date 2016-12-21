@@ -23,6 +23,10 @@ for field in mandatory_fields:
         if not config[field]:
             raise Exception("Mandatory field '"+field+"' not specified in config file")
 
+#import elements
+call(["git", "submodule","init"])
+call(["git", "submodule","update"])
+
 # build commandline
 image_name = config['name'] + '-' + config['version'] + '.qcow2'
 architecture = config['dib']['architecture']
@@ -38,9 +42,7 @@ if packages:
     cli += ' -p '
     cli += ','.join(packages)
 
-#import elements
-subprocess.call(["git", "submodule","init"])
-subprocess.call(["git", "submodule","update"])
+
 
 if elements:
     for e in elements:
