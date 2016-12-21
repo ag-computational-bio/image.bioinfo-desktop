@@ -35,8 +35,8 @@ if architecture:
 
 cli += ' -o ' + image_name
 if packages:
-    for p in packages:
-        cli += ' -p ' + p
+    cli += ' -p '
+    cli += ','.join(packages)
 
 if elements:
     for e in elements:
