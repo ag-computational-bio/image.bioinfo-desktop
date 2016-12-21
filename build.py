@@ -43,5 +43,10 @@ if elements:
         cli += ' ' + e
 
 # Execute diskimage builder
+if 'ELEMENTS_PATH' in os.environ:
+    os.environ['ELEMENTS_PATH'] = os.getcwd() + '/elements:' + os.environ['ELEMENTS_PATH']
+else:
+    os.environ['ELEMENTS_PATH'] = os.getcwd() + '/elements'
+
 print("Executing: " + cli)
 os.system(cli)
