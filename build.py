@@ -2,6 +2,7 @@
 import argparse
 import os
 import yaml
+import sys
 from subprocess import call
 
 sys.stderr.write("Starting build...\n")
