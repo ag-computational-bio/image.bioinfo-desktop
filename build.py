@@ -4,13 +4,13 @@ import os
 import yaml
 from subprocess import call
 
-print("Starting build...\n")
+sys.stderr.write("Starting build...\n")
 
 # parse arguments
 parser = argparse.ArgumentParser(description='Build image from configuration yaml file')
 parser.add_argument('-c', '--config', default='config.yaml')
 args = parser.parse_args()
-print("reading file...\n")
+sys.stderr.write("reading file...\n")
 # read yaml
 stream = file(args.config, 'r')
 config = yaml.load(stream)
@@ -28,7 +28,7 @@ for field in mandatory_fields:
 #import elements
 #call(["git", "submodule","init"])
 #call(["git", "submodule","update"])
-print("building command...\n")
+sys.stderr.write("building command...\n")
 # build commandline
 image_name = config['name'] + '-' + config['version'] + '.qcow2'
 architecture = config['dib']['architecture']
@@ -51,12 +51,12 @@ if elements:
         cli += ' ' + e
 
 
-print("setting environment variable...\n")
+sys.stderr.write("setting environment variable...\n")
 # Execute diskimage builder
 if 'ELEMENTS_PATH' in os.environ:
     os.environ['ELEMENTS_PATH'] = os.getcwd() + '/elements:' + os.environ['ELEMENTS_PATH']
 else:
     os.environ['ELEMENTS_PATH'] = os.getcwd() + '/elements'
 
-print("Executing: " + cli)
+sys.stderr.write("Executing: " + cli)
 os.system(cli)
