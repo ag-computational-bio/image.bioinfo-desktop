@@ -2,11 +2,10 @@ image: debian:latest
 before_script:
     - apt-get update
     - apt-get upgrade -y
-    - apt-get install git python-pip qemu-utils -y
+    - apt-get install git python-yaml python-pip qemu-utils -y
     - git submodule sync --recursive
     - git submodule update --init --recursive
-    - pip install diskimage-builder 
-    - pip install pyyaml
+    - pip install diskimage-builder
 
 stages:
     - build
