@@ -1,11 +1,19 @@
 #!/usr/bin/env python
+import argparse
+import os
 import yaml
 from subprocess import call
-import os
 
-stream = file('config.yaml', 'r')
+# parse arguments
+parser = argparse.ArgumentParser(description='Build image from configuration yaml file')
+parser.add_argument('-c', '--config', default='config.yaml')
+args = parser.parse_args()
+
+# read yaml
+stream = file(args.config, 'r')
 config = yaml.load(stream)
 
+# check mandatory fields
 mandatory_fields = ['name', 'version', ['dib','architecture'], ['dib', 'elements']]
 for field in mandatory_fields:
     if isinstance(field, list):
@@ -15,6 +23,7 @@ for field in mandatory_fields:
         if not config[field]:
             raise Exception("No '"+field+"' for the image defined")
 
+# build commandline
 image_name = config['name'] + '-' + config['version'] + '.qcow2'
 architecture = config['dib']['architecture']
 elements = config['dib']['elements']
@@ -33,5 +42,6 @@ if elements:
     for e in elements:
         cli += ' ' + e
 
+# Execute diskimage builder
 print("Executing: " + cli)
 os.system(cli)
