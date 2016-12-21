@@ -6,6 +6,15 @@ import os
 stream = file('config.yaml', 'r')
 config = yaml.load(stream)
 
+mandatory_fields = ['name', 'version', ['dib','architecture'], ['dib', 'elements']]
+for field in mandatory_fields:
+    if isinstance(field, list):
+        if not config[field[0]][field[1]]:
+            raise Exception("No '"+field[0] +"."+field[1]+"' for the image defined")
+    else:
+        if not config[field]:
+            raise Exception("No '"+field+"' for the image defined")
+
 image_name = config['name'] + '-' + config['version'] + '.qcow2'
 architecture = config['dib']['architecture']
 elements = config['dib']['elements']
