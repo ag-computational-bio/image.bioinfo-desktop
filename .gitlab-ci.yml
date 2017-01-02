@@ -4,8 +4,8 @@ before_script:
     - sudo apt-get install git python-yaml python-pip qemu-utils uuid-runtime -y
     - git submodule sync --recursive
     - git submodule update --init --recursive
-    - pip install --upgrade pip
-    - pip install diskimage-builder
+    - sudo pip install --upgrade pip
+    - sudo pip install diskimage-builder
 
 stages:
     - build
