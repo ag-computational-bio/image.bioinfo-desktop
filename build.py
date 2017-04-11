@@ -2,7 +2,10 @@
 import argparse
 import os
 import yaml
+import sys
 from subprocess import call
+
+sys.stderr.write("Starting build...\n")
 
 # parse arguments
 parser = argparse.ArgumentParser(description='Build image from configuration yaml file')
@@ -10,6 +13,7 @@ parser.add_argument('-c', '--config', default='config.yaml')
 args = parser.parse_args()
 output_directory='target'
 
+sys.stderr.write("reading file...\n")
 # read yaml
 stream = file(args.config, 'r')
 config = yaml.load(stream)
@@ -24,6 +28,7 @@ for field in mandatory_fields:
         if not config[field]:
             raise Exception("Mandatory field '"+field+"' not specified in config file")
 
+sys.stderr.write("building command...\n")
 # build commandline
 image_name = config['name'] + '-' + config['version'] + '.qcow2'
 architecture = config['dib']['architecture']
@@ -48,12 +53,12 @@ if elements:
         cli += ' ' + e
 
 
-
+sys.stderr.write("setting environment variable...\n")
 # Execute diskimage builder
 if 'ELEMENTS_PATH' in os.environ:
     os.environ['ELEMENTS_PATH'] = os.getcwd() + '/elements:' + os.environ['ELEMENTS_PATH']
 else:
     os.environ['ELEMENTS_PATH'] = os.getcwd() + '/elements'
 
-print("Executing: " + cli)
-os.system(cli)
+sys.stderr.write("Executing: " + cli + "\n")
+sys.exit(os.system(cli))

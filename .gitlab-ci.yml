@@ -1,4 +1,11 @@
-image: bohai/diskimage-builder-dockerfile
+before_script:
+    - sudo apt-get update
+    - sudo apt-get upgrade -y
+    - sudo apt-get install git python-yaml python-pip qemu-utils uuid-runtime -y
+    - git submodule sync --recursive
+    - git submodule update --init --recursive
+    - sudo pip install --upgrade pip
+    - sudo pip install diskimage-builder
 
 stages:
     - build
@@ -6,4 +13,5 @@ stages:
 build:
     stage: build
     script:
-        - ./build.py 
+        - ./build.py
+        - ls -la *.qcow2
