@@ -8,6 +8,7 @@ from subprocess import call
 parser = argparse.ArgumentParser(description='Build image from configuration yaml file')
 parser.add_argument('-c', '--config', default='config.yaml')
 args = parser.parse_args()
+output_directory='target'
 
 # read yaml
 stream = file(args.config, 'r')
@@ -33,14 +34,14 @@ cli = 'disk-image-create'
 if architecture:
     cli += ' -a ' + architecture
 
-cli += ' -o ' + image_name
+cli += ' -o ' + output_directory + '/' + image_name
 if packages:
     cli += ' -p '
     cli += ','.join(packages)
 
 #import elements
-subprocess.call(["git", "submodule","init"])
-subprocess.call(["git", "submodule","update"])
+call(["git", "submodule","init"])
+call(["git", "submodule","update"])
 
 if elements:
     for e in elements:
