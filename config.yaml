@@ -1,13 +1,13 @@
 # The name of the cloud image will be created from the name and the version.
-name: nginx
+name: wildfly
 version: 1.0.0
-maintainers: [Joe User - juser@example.com]
+maintainers: [Lukas Jelonek - lukas.jelonek@computational.bio.uni-giessen.de]
 
 # The description will be used for generated websites
-description: An ubuntu image that contains nginx
+description: An ubuntu image that contains wildfly
 # A list of installed tools worth mentioning. 
 # Will be used as documentation, e.g. on a homepage
-tools: [nginx]
+tools: [wildfly]
 
 # A list of tags to classify images. 
 tags: [webserver]
@@ -17,9 +17,9 @@ dib:
     # architecture of the image
     architecture: amd64
     # list of elements to include in the image
-    elements: [ubuntu, vm]
+    elements: [ubuntu, vm, wildfly]
     # package names that should be installed, -p in dib
-    packages: [nginx]
+    packages: []
 
 # Information needed for image deployment
 deploy:
