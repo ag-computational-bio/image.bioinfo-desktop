@@ -16,6 +16,7 @@ build:
         - dib
         - cloud
     script:
+        - export SHLVL=2
         - sudo bash env.sh
         - ./build.py
         - ls -la *.qcow2
