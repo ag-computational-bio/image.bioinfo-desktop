@@ -15,7 +15,7 @@ output_directory='target'
 
 sys.stderr.write("reading file...\n")
 # read yaml
-stream = file(args.config, 'r')
+stream = open(args.config, 'r')
 config = yaml.load(stream)
 
 # check mandatory fields
