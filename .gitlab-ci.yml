@@ -14,5 +14,6 @@ build:
         - dib
         - cloud
     script:
+        - export
         - ./build.py
         - ls -la *.qcow2
