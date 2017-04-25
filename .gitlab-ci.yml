@@ -14,5 +14,6 @@ build:
         - dib
         - cloud
     script:
+        - sudo bash env.sh
         - ./build.py
         - ls -la *.qcow2
