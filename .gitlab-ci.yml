@@ -4,6 +4,8 @@ before_script:
     
 variables:
     LANG: "en_US.UTF-8"
+    SHLVL: "2"
+    TERM: "screen"
     
 stages:
     - build
