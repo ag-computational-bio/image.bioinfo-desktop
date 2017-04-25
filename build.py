@@ -35,7 +35,7 @@ architecture = config['dib']['architecture']
 elements = config['dib']['elements']
 packages = config['dib']['packages']
 
-cli = 'disk-image-create'
+cli = 'sudo disk-image-create'
 if architecture:
     cli += ' -a ' + architecture
 
