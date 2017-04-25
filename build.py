@@ -35,7 +35,7 @@ architecture = config['dib']['architecture']
 elements = config['dib']['elements']
 packages = config['dib']['packages']
 
-cli = 'sudo disk-image-create'
+cli = 'disk-image-create'
 if architecture:
     cli += ' -a ' + architecture
 
@@ -59,6 +59,8 @@ if 'ELEMENTS_PATH' in os.environ:
     os.environ['ELEMENTS_PATH'] = os.getcwd() + '/elements:' + os.environ['ELEMENTS_PATH']
 else:
     os.environ['ELEMENTS_PATH'] = os.getcwd() + '/elements'
+    
+os.environ["LANG"] = "en_US.UTF-8"
 
 sys.stderr.write("Executing: " + cli + "\n")
 sys.exit(os.system(cli))
