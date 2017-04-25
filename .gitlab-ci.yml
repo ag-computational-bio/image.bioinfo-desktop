@@ -1,17 +1,11 @@
-before_script:
-    - sudo apt-get update
-    - sudo apt-get upgrade -y
-    - sudo apt-get install git python-yaml python-pip qemu-utils uuid-runtime -y
-    - git submodule sync --recursive
-    - git submodule update --init --recursive
-    - sudo pip install --upgrade pip
-    - sudo pip install diskimage-builder
-
 stages:
     - build
 
 build:
     stage: build
+    tags:
+        - dib
+        - cloud
     script:
         - ./build.py
         - ls -la *.qcow2
