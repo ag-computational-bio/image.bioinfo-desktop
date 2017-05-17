@@ -2,11 +2,6 @@ before_script:
     - git submodule sync --recursive
     - git submodule update --init --recursive
     
-variables:
-    LANG: "en_US.UTF-8"
-    SHLVL: "2"
-    TERM: "screen"
-    
 stages:
     - build
 
@@ -16,7 +11,4 @@ build:
         - dib
         - cloud
     script:
-        - export SHLVL=2
-        - sudo bash env.sh
         - ./build.py
-        - ls -la *.qcow2
