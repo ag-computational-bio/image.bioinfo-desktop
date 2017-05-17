@@ -17,9 +17,9 @@ dib:
     # architecture of the image
     architecture: amd64
     # list of elements to include in the image
-    elements: [ubuntu, vm, diskimage-builder]
+    elements: [ubuntu, vm, openstack-utilities]
     # package names that should be installed, -p in dib
-    packages: [python-pip]
+    packages: []
 
 # Information needed for image deployment
 deploy:
