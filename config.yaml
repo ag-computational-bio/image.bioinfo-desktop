@@ -1,28 +1,28 @@
 # The name of the cloud image will be created from the name and the version.
-name: wildfly
+name: cloud-developer-box
 version: 1.0.0
 maintainers: [Lukas Jelonek - lukas.jelonek@computational.bio.uni-giessen.de]
 
 # The description will be used for generated websites
-description: An ubuntu image that contains wildfly
+description: An ubuntu image that contains the openstack client and the diskimage-builder
 # A list of installed tools worth mentioning. 
 # Will be used as documentation, e.g. on a homepage
-tools: [wildfly]
+tools: [diskimage-builder, openstack]
 
 # A list of tags to classify images. 
-tags: [webserver]
+tags: [developer, diskimage-builder, openstack]
 
 # Information needed for the execution of diskimage-builder
 dib:
     # architecture of the image
     architecture: amd64
     # list of elements to include in the image
-    elements: [ubuntu, vm, wildfly]
+    elements: [ubuntu, vm, diskimage-builder]
     # package names that should be installed, -p in dib
-    packages: []
+    packages: [python-pip]
 
 # Information needed for image deployment
 deploy:
     min_cpu: 1
-    min_ram: 512M
-    min_hd: 2G
+    min_ram: 8G
+    min_hd: 20G
