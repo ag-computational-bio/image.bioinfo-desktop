@@ -11,4 +11,4 @@ build:
         - dib
         - cloud
     script:
-        - ./build.py
+        - dib-builder/build.py

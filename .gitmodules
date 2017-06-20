@@ -1,3 +1,6 @@
 [submodule "elements"]
 	path = elements
 	url = ../../deNBI-Cloud/elements.git
+[submodule "dib-builder"]
+	path = dib-builder
+	url = ../../deNBI-Cloud/dib-builder.git
