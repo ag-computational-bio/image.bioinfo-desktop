@@ -1,23 +1,23 @@
 # The name of the cloud image will be created from the name and the version.
-name: cloud-developer-box
+name: bioinfo-desktop
 version: 1.0.0
 maintainers: [Lukas Jelonek - lukas.jelonek@computational.bio.uni-giessen.de]
 
 # The description will be used for generated websites
-description: An ubuntu image that contains the openstack client and the diskimage-builder
+description: An ubuntu image that contains an xfce desktop and x2go 
 # A list of installed tools worth mentioning. 
 # Will be used as documentation, e.g. on a homepage
-tools: [diskimage-builder, openstack]
+tools: [xfce, x2go]
 
 # A list of tags to classify images. 
-tags: [developer, diskimage-builder, openstack]
+tags: [desktop]
 
 # Information needed for the execution of diskimage-builder
 dib:
     # architecture of the image
     architecture: amd64
     # list of elements to include in the image
-    elements: [ubuntu, vm, openstack-utilities]
+    elements: [ubuntu, vm, xfce-desktop, conda-biotools]
     # package names that should be installed, -p in dib
     packages: []
 

@@ -1,1 +1,1 @@
-This is a cloud image that contains everything to get started with image development, e.g. git, openstack client and diskimage-builder
+This is an image that contains a xfce desktop that is accessible via x2go
