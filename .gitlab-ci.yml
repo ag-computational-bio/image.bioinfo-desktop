@@ -2,23 +2,11 @@ before_script:
   - git submodule sync --recursive
   - git submodule update --init --recursive
 
-build:
+build-and-deploy:
   stage: build
   tags:
     - dib
     - cloud
   script:
     - dib-builder/build.py
-  artifacts:
-    paths:
-      - target/
-
-deploy:
-  stage: deploy
-  tags:
-    - dib
-    - cloud
-  script:
     - dib-builder/deploy.py
-  dependencies:
-    - build
