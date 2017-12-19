@@ -1,6 +1,6 @@
 # The name of the cloud image will be created from the name and the version.
 name: bioinfo-desktop
-version: 1.1.0
+version: 0.1.1
 maintainers: [Lukas Jelonek - lukas.jelonek@computational.bio.uni-giessen.de]
 
 # The description will be used for generated websites
