@@ -1,6 +1,6 @@
 # The name of the cloud image will be created from the name and the version.
 name: bioinfo-desktop
-version: 0.1.1
+version: 0.1.2
 maintainers: [Lukas Jelonek - lukas.jelonek@computational.bio.uni-giessen.de]
 
 # The description will be used for generated websites
@@ -19,7 +19,7 @@ dib:
     # list of elements to include in the image
     elements: [ubuntu, vm, xfce-desktop, conda-biotools]
     # package names that should be installed, -p in dib
-    packages: []
+    packages: [linux-generic-hwe-16.04-edge]
 
 # Information needed for image deployment
 deploy:
