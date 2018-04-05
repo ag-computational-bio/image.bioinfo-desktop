@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ ! -e ~/conda ]
+then
+    mkdir ~/conda
+fi
+
+sudo mkdir $TARGET_ROOT/mnt/conda
+sudo mount --bind ~/conda $TARGET_ROOT/mnt/conda

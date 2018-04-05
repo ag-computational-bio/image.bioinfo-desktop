@@ -1,0 +1,7 @@
+#/bin/bash
+export PATH=/opt/conda/bin:$PATH
+
+conda install -y -q bowtie2 spades prokka blast samtools bcftools 
+conda install -y --use-index-cache -q fastqc cutadapt prodigal trimmomatic hmmer rstudio fastx_toolkit
+conda install -y --use-index-cache -q bioconductor-deseq2 muscle emboss
+conda install -y --use-index-cache -c conda-forge readline=6.2
