@@ -8,5 +8,5 @@ build-and-deploy:
     - dib
     - cloud
   script:
-    - dib-builder/build.py
-    - dib-builder/deploy.py
+    - dibt-build
+    - dibt-deploy
