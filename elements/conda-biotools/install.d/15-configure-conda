@@ -1,0 +1,19 @@
+#/bin/bash
+cat << EOF > /opt/conda/.condarc
+channels:
+  - bioconda
+  - r
+  - conda-forge
+  - defaults
+pkgs_dirs:
+  - $TARGET_ROOT/mnt/conda/pkgs
+EOF
+
+/opt/conda/bin/conda info
+
+# register the conda installation globally
+cat << EOF >> /etc/bash.bashrc
+if [ -d /opt/conda/bin/ ]; then
+  export PATH=$PATH:/opt/conda/bin
+fi
+EOF
